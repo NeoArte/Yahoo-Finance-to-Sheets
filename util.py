@@ -19,8 +19,9 @@ def symbol_to_ticker_history(symbol: str):
 def get_ticker_history(symbol: str, ticker: yf.Ticker = None, period: str = "1y"):
     print(f"Getting ticker (symbol: {symbol}) history for the period of {period}.")
     ticker = symbol_to_ticker_history(symbol) if ticker is None else ticker
+    r = ticker.history(period=period)
     print("Sucess.")
-    return ticker.history(period=period)
+    return r
 
 
 def sheet_to_gid(sheet: str) -> Optional[str]:

@@ -3,6 +3,7 @@
 
 import warnings
 import pandas as pd
+import numpy as np
 from util import get_ticker_history, get_worksheet
 
 disableFutureWarning = True
@@ -15,9 +16,10 @@ if disableFutureWarning:
 def pipeline(symbol: str):
     worksheet = get_worksheet(symbol)
     df = get_ticker_history(symbol)
-    print(f"Writing data for {symbol}")
+    df.insert(0, "Date", np.datetime_as_string(df.index.values))
+    print(f"Writing data for {symbol}.")
     worksheet.update([df.columns.values.tolist()] + df.values.tolist())
-    print("Sucess")
+    print("Sucess.")
 
 
 def main():
