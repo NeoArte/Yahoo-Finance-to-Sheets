@@ -5,10 +5,10 @@ import warnings
 import pandas as pd
 from util import get_ticker_history, get_worksheet
 
-environment = "dev"
-# yfinance uses the 'unit' keyword from Pandas and for supressing it, the line below is necessary.
-# Disable it on production
-if environment == "dev":
+disableFutureWarning = "dev"
+# yfinance uses the 'unit' keyword from Pandas which WILL be disabled.
+# For supressing it, the lines below are necessary.
+if disableFutureWarning == "prd":
     warnings.simplefilter(action="ignore", category=FutureWarning)
 
 
