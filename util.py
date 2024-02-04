@@ -6,7 +6,7 @@ import pandas as pd
 import gspread
 
 
-def symbol_to_ticker_history(symbol: str, period: str = "1y"):
+def symbol_to_ticker_history(symbol: str):
     return {
         "META": yf.Ticker("META"),
         "AMZN": yf.Ticker("AMZN"),
