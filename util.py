@@ -35,7 +35,7 @@ def sheet_to_gid(sheet: str) -> Optional[str]:
 
 def get_sheet():
     gc = gspread.service_account(filename=".gspread/service_account.json")
-    return gc.open("Yahoo")
+    return gc.open("Finance Source & View")
 
 
 def get_worksheet(worksheet_title: str):
